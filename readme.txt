@@ -62,3 +62,13 @@ java -cp mapr-sparkstreaming-uber-1.0.jar:`mapr classpath` com.streamskafka.uber
 
 
 
+If you want to skip the machine learning and publishing part, the JSON results are in a file in the directory data/ubertripclusters.json
+scp this file to /user/user01/data/ubertripclusters.json
+
+Then run the MapR Streams Java producer to produce messages with the Java producer with the topic and data file arguments:
+
+java -cp mapr-sparkstreaming-uber-1.0.jar:`mapr classpath` com.streamskafka.uber.MsgProducer /user/user01/stream:uberp /user/user01/data/ubertripclusters.json
+
+The you can  Run the Spark Consumer which consumes the machine learning enriched methods, run the spark consumer with the topic to read from and write to:
+
+spark-submit --class com.sparkkafka.uber.SparkKafkaConsumer --master local[2] mapr-sparkstreaming-uber-1.0.jar /user/user01/stream:uberp
