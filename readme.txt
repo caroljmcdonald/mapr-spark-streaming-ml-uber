@@ -60,7 +60,7 @@ To run the MapR Streams Java consumer, run the Java consumer with the topic to r
 
 java -cp mapr-sparkstreaming-uber-1.0.jar:`mapr classpath` com.streamskafka.uber.MsgConsumer /user/user01/stream:uberp 
 
-
+_________________________________________________________________________
 
 If you want to skip the machine learning and publishing part, the JSON results are in a file in the directory data/ubertripclusters.json
 scp this file to /user/user01/data/ubertripclusters.json
